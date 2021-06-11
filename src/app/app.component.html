@@ -1,0 +1,46 @@
+<header class="flex">
+  <h1>Welcome {{ title }}!</h1>
+</header>
+<main>
+
+  <div class="main-divs">
+    <table class="board">
+      <tbody>
+        <tr *ngFor="let data of mars; let i = index">
+          <td *ngFor="let cell of data; let j = index">
+            <littlerobot-square-cell [myCell]=cell [robotOrientation]=orientation [robotMovement]=movement ></littlerobot-square-cell>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="main-divs">
+    <p>
+      <input type="text" maxlength="100" style="width: 600px;"
+        [(ngModel)]="intructions"
+        (keyup.enter)="checkKey($event)"
+        placeholder="Enter intructions like F R F F L F and finish width enter key">
+    </p>
+    <p>
+      <input type="text"
+        placeholder="Enter arrow keys"
+        (keyup.arrowdown)="checkKey($event)"
+        (keyup.arrowright)="checkKey($event)"
+        (keyup.arrowleft)="checkKey($event)">
+    </p>
+
+    <p>
+      <span></span>
+    </p>
+    <table>
+      <tbody>
+        <tr>
+          <th>Fail results:</th>
+        </tr>
+        <tr *ngFor="let fail of fails;">
+          <span>{{ fail }}</span>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
