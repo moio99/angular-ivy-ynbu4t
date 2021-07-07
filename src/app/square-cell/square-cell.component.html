@@ -1,3 +1,26 @@
 {{ myCell.row + '' + myCell.colum}}
 
-<img *ngIf=myCell.isRobot src="{{'../../assets/' + robotOrientation + '.png'}}" alt="{{ robotOrientation.toUpperCase() + ' Orientation'}}" width="44px" height="44px"/>
+<img
+  *ngIf="myCell.isRobot"
+  src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+  alt="{{ robotOrientation?.toUpperCase() + ' Orientation'}}"
+  [ngStyle]="{'transform': 'rotate(' + rotation + 'deg)'}"
+  width="44px"
+  height="44px"
+/>
+
+<img
+  *ngIf="myCell.isMineral"
+  src="https://rickandmortyapi.com/api/character/avatar/6.jpeg"
+  alt="mineral"
+  width="44px"
+  height="44px"
+/>
+
+<img
+  *ngIf="myCell.isWagon"
+  src="https://rickandmortyapi.com/api/character/avatar/18.jpeg"
+  alt="wagon"
+  width="44px"
+  height="44px"
+/>
